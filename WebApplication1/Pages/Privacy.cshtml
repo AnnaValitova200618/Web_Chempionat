@@ -1,0 +1,49 @@
+﻿@page
+@model PrivacyModel
+
+    @{
+        ViewData["Title"] = "Privacy Policy";
+    }
+
+
+    <style>
+    .MainText{
+        text-align:center;
+
+    }
+    
+        .list
+        {
+            width: 100%;
+            margin-top:50px
+        }
+    </style>
+
+
+<h1 class="MainText"> Реестр поданных заявок </h1>
+<table align="center" class="list" >
+    <thead>
+        <tr>
+            <th>Тип заявки</th>
+            <th>Подразделение для доступа</th>
+            <th>Время действия</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    
+    <tbody >
+        @for(int i = 0; i < Model.Requests.Count; i++)
+        {
+            <tr>
+                <td>@(Model.Requests[i].CrossUserRequests.Count > 1 ? "Групповая" : "Персональная")</td>
+                <td>@Model.Requests[i].IdWorkerNavigation.IdSubdivisionNavigation?.Title</td>
+                <td>@($"{Model.Requests[i].DateStart.ToShortDateString()} - {Model.Requests[i].DateEnd.ToShortDateString()}")</td>
+                <td>@Model.Requests[i].IdStatusNavigation.Title</td>
+            </tr>
+        }
+        
+
+    </tbody>
+    
+</table>
+

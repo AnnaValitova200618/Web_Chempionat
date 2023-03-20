@@ -1,0 +1,26 @@
+﻿@page
+@model WebApplication1.Pages.SelectTypeModel
+@{
+	<style>
+						.Buttons
+						{
+							text-align:center;
+							
+						}
+	</style>
+	
+	
+	<body >
+							<h1 class="Buttons">Выбор подачи заявки</h1>
+							<p class="Buttons">
+								<a asp-page="/PersonalVisit" asp-page-handler="@Model.Session"><img src="~/Foto/Безымянный.png" 
+			 >
+								</a>
+								<a asp-page="/GroupVisit" asp-page-handler="@Model.Session"><img src="~/Foto/Безымянный2.png" 
+			 >
+								</a>
+							</p>
+							
+							
+	</body>
+}

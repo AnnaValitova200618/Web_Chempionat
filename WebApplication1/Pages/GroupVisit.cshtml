@@ -1,0 +1,152 @@
+﻿@page
+@model WebApplication1.Pages.GroupVisitModel
+@{
+}
+<style>
+    .combobox {
+        width: 200px
+    }
+</style>
+<style>
+    .MainText {
+        background: orange;
+        text-align: center
+    }
+</style>
+<style>
+    .Text {
+        text-align: center
+    }
+</style>
+<style>
+    .Table{
+        margin-top:100px;
+        width: 90%
+    }
+</style>
+
+<form  method="post" asp-page-handler="@Model.Session">
+    
+<table align="center" class="Table">
+    <tr>
+        <th colspan="4" class="MainText">
+            Информация для пропуска
+        </th>
+        <td width="100"></td>
+        <th width="200" class="MainText">
+            Принимающая сторона
+        </th>
+
+    </tr>
+    <tr>
+        <td colspan="4" class="Text">Срок действия заявки</td>
+        <td width="100"></td>
+        <td class="Text">Подразделение</td>
+    </tr>
+    <tr>
+
+        <td> c </td>
+        <td><input type="date" class="combobox"></td>
+
+        <td> по </td>
+        <td><input type="date" class="combobox"></td>
+        <td width="100"></td>
+        <td><select class="combobox" asp-for="SubdivisionID" asp-items="Model.SubList"></select></td>
+    </tr>
+    <tr>
+        <td colspan="4" class="Text">
+            Цель посещения
+        </td>
+        <td width="100"></td>
+        <td>ФИО</td>
+    </tr>
+    <tr>
+        <td colspan="4" class="Text">
+            <select class="combobox" asp-for="@Model.VisitPurposesID" asp-items="Model.VisPurList"></select>
+        </td>
+        <td width="100"></td>
+        <td class="Text">
+           <select class="combobox" asp-for="WorkerID" asp-items="Model.WorkerList"></select>
+        </td>
+    </tr>
+</table>
+<table align="center" class="Table">
+    <tr>
+        <th colspan="4" class="MainText">
+            Информация o посетителе
+        </th>
+            <td width="100"></td>
+        <th class="MainText"> Список поситителей </th>
+    </tr>
+    <tr>
+        <td>Фамилия :</td>
+        <td><input type="text" /></td>
+        <td>Организация :</td>
+        <td><input type="text" /></td>
+        <td width="100"></td>
+        <td >  
+            <table>
+                <thead>
+                <tr>
+                    <td>№</td>
+                    <td >ФИО</td>
+                    <td >Контакты</td>
+                    <td >Фотография</td>
+                        
+                </tr>
+                </thead>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Имя :</td>
+        <td><input type="text" /></td>
+        <td>Примечание :</td>
+        <td><input type="text" /></td>
+    </tr>
+    <tr>
+        <td>Отчество :</td>
+        <td><input type="text" /></td>
+        <td>Дата рождения :</td>
+        <td><input type="date" /></td>
+    </tr>
+    <tr>
+        <td>Телефон :</td>
+        <td><input type="text" /></td>
+        <td>Серия :</td>
+        <td><input type="text" /></td>
+        
+    </tr>
+    <tr>
+        <td>E-mail :</td>
+        <td><input type="text" /></td>
+        <td>Номер :</td>
+        <td><input type="text" /></td>
+        
+    </tr>
+    <tr>
+        <td colspan="4"><input type="button" value="Добавить посетителя"/></td>
+    </tr>
+</table>
+<table align="center" class="Table">
+    <tr>
+        <th class="MainText">
+            Прикрепляемые документы
+        </th>
+
+    </tr>
+    <tr>
+        <td>
+            <input type="file" />
+
+        </td>
+        <td width="240"></td>
+        <td>
+            <input type="submit" name="cleanData"  value="Очистить форуму" />
+        </td>
+        <td>
+            <input type="submit" name="fillData" value="Оформить заявку" />
+        </td>
+    </tr>
+</table>
+</form>
